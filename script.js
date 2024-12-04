@@ -1,20 +1,20 @@
-// Función para navegar entre secciones
+// Existing Navigation Function
 function navigateTo(sectionId) {
-    // Ocultar todas las secciones
+    // Hide all sections
     const sections = document.querySelectorAll('.section');
     sections.forEach(section => section.classList.add('hidden'));
 
-    // Mostrar la sección seleccionada
+    // Show selected section
     const selectedSection = document.getElementById(sectionId);
     selectedSection.classList.remove('hidden');
 }
 
-// Inicializar en la sección Dashboard
+// Initialize on Dashboard
 document.addEventListener('DOMContentLoaded', () => {
     navigateTo('dashboard');
 });
 
-// Datos de los cursos
+// Existing Courses Data
 const coursesData = {
     1: {
         title: "Introducción a Python",
@@ -60,64 +60,26 @@ const coursesData = {
     }
 };
 
-// Función para abrir el modal con la información del curso
-function openCourseModal(courseId) {
-    const course = coursesData[courseId];
-    if (!course) return;
+// Profile Page Functions
+function changePassword() {
+    const newPassword = prompt('Ingrese su nueva contraseña:');
+    const confirmPassword = prompt('Confirme su nueva contraseña:');
 
-    const modal = document.getElementById('courseModal');
-    const title = document.getElementById('modalTitle');
-    const description = document.getElementById('courseDescription');
-    const videoContainer = document.querySelector('.video-container');
-    const modulesList = document.getElementById('courseModules');
-
-    title.textContent = course.title;
-    description.textContent = course.description;
-
-    videoContainer.innerHTML = `
-        <iframe class="absolute top-0 left-0 w-full h-full"
-                src="${course.video}"
-                title="${course.title}" 
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-        </iframe>
-    `;
-
-    modulesList.innerHTML = course.modules.map((module, index) => `
-        <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-            <span class="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">
-                ${index + 1}
-            </span>
-            <span class="text-gray-700">${module}</span>
-        </div>
-    `).join('');
-
-    modal.classList.remove('hidden');
-    modal.classList.add('fade-in');
-}
-
-// Función para cerrar el modal
-function closeCourseModal() {
-    const modal = document.getElementById('courseModal');
-    modal.classList.add('fade-out');
-    setTimeout(() => {
-        modal.classList.add('hidden');
-        modal.classList.remove('fade-out');
-    }, 300);
-}
-
-// Cerrar modal con tecla Escape
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        closeCourseModal();
+    if (newPassword && confirmPassword && newPassword === confirmPassword) {
+        alert('Contraseña cambiada exitosamente');
+    } else if (newPassword !== confirmPassword) {
+        alert('Las contraseñas no coinciden');
     }
+}
+
+// Profile Form Submission
+document.getElementById('profileForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Cambios guardados exitosamente');
 });
 
-// Cerrar modal al hacer clic fuera de él
-const modal = document.getElementById('courseModal');
-modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        closeCourseModal();
-    }
+// Toggle switches
+document.getElementById('notificationsToggle').addEventListener('change', function(e) {
+    e.preventDefault();
+    alert('Cambios guardados exitosamente');
 });

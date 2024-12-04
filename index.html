@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ROJO - Plataforma Educativa</title>
-    <!-- Importamos Tailwind CSS desde CDN -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -35,8 +34,8 @@
 
     <!-- Contenido Principal -->
     <div id="content" class="flex-1 p-6">
-        <!-- Sección Dashboard -->
-        <section id="dashboard" class="section">
+         <!-- Sección Dashboard -->
+         <section id="dashboard" class="section">
             <header class="bg-white shadow">
                 <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
                     <div class="flex justify-between items-center">
@@ -164,8 +163,87 @@
 
         <!-- Sección Mi Perfil -->
         <section id="mi-perfil" class="section hidden">
-            <h2 class="text-2xl font-bold">Mi Perfil</h2>
-            <p>Gestiona tu información personal.</p>
+            <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8">
+                <div class="flex items-center mb-8">
+                    <div class="h-24 w-24 rounded-full bg-blue-600 flex items-center justify-center mr-6">
+                        <span class="text-white text-4xl font-bold">JP</span>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold">Juan Pérez</h2>
+                        <p class="text-gray-600">Estudiante</p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Personal Information -->
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-lg font-semibold mb-4">Información Personal</h3>
+                        <form id="profileForm">
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="fullName">Nombre Completo</label>
+                                <input type="text" id="fullName" name="fullName" value="Juan Pérez" 
+                                       class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Correo Electrónico</label>
+                                <input type="email" id="email" name="email" value="juan.perez@example.com" 
+                                       class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="birthDate">Fecha de Nacimiento</label>
+                                <input type="date" id="birthDate" name="birthDate" value="1995-06-15" 
+                                       class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                                Guardar Cambios
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Account Settings -->
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-lg font-semibold mb-4">Configuración de Cuenta</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="flex items-center cursor-pointer">
+                                    <input type="checkbox" id="notificationsToggle" class="form-checkbox h-5 w-5 text-blue-600">
+                                    <span class="ml-2 text-gray-700">Recibir Notificaciones</span>
+                                </label>
+                            </div>
+                            <div>
+                                <label class="flex items-center cursor-pointer">
+                                    <input type="checkbox" id="privacyToggle" class="form-checkbox h-5 w-5 text-blue-600">
+                                    <span class="ml-2 text-gray-700">Perfil Público</span>
+                                </label>
+                            </div>
+                            <div>
+                                <button onclick="changePassword()" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                                    Cambiar Contraseña
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievements -->
+                <div class="mt-8 bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-lg font-semibold mb-4">Logros</h3>
+                    <div class="flex space-x-4">
+                        <div class="bg-white p-4 rounded-lg text-center shadow">
+                            <span class="text-3xl font-bold text-blue-600">1250</span>
+                            <p class="text-gray-600">Puntos</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg text-center shadow">
+                            <span class="text-3xl font-bold text-green-600">3</span>
+                            <p class="text-gray-600">Insignias</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg text-center shadow">
+                            <span class="text-3xl font-bold text-purple-600">2</span>
+                            <p class="text-gray-600">Cursos Completados</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </div>
 
