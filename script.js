@@ -1,20 +1,34 @@
-// Existing Navigation Function
-function navigateTo(sectionId) {
-    // Hide all sections
-    const sections = document.querySelectorAll('.section');
-    sections.forEach(section => section.classList.add('hidden'));
+// Función para abrir los cursos en el modal
+function openCourseModal(courseId) {
+    // Obtener el curso seleccionado
+    const course = coursesData[courseId];
+    if (!course) return;
 
-    // Show selected section
-    const selectedSection = document.getElementById(sectionId);
-    selectedSection.classList.remove('hidden');
+    // Obtener elementos del modal
+    const modal = document.getElementById('courseModal');
+    const title = document.getElementById('modalTitle');
+    const description = document.getElementById('courseDescription');
+    const videoContainer = document.getElementById('courseModules');
+
+    // Actualizar el contenido del modal
+    title.textContent = course.title;
+    description.textContent = course.description;
+
+    // Inserta el video en el contenedor del modal
+    const video = `<iframe src="${course.video}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+    videoContainer.innerHTML = video;
+
+    // Mostrar el modal
+    modal.classList.remove('hidden');
 }
 
-// Initialize on Dashboard
-document.addEventListener('DOMContentLoaded', () => {
-    navigateTo('dashboard');
-});
+// Función para cerrar el modal de cursos
+function closeCourseModal() {
+    const modal = document.getElementById('courseModal');
+    modal.classList.add('hidden');
+}
 
-// Existing Courses Data
+// Datos de los cursos
 const coursesData = {
     1: {
         title: "Introducción a Python",
@@ -60,26 +74,18 @@ const coursesData = {
     }
 };
 
-// Profile Page Functions
-function changePassword() {
-    const newPassword = prompt('Ingrese su nueva contraseña:');
-    const confirmPassword = prompt('Confirme su nueva contraseña:');
+// Navegar entre secciones
+function navigateTo(sectionId) {
+    // Ocultar todas las secciones
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => section.classList.add('hidden'));
 
-    if (newPassword && confirmPassword && newPassword === confirmPassword) {
-        alert('Contraseña cambiada exitosamente');
-    } else if (newPassword !== confirmPassword) {
-        alert('Las contraseñas no coinciden');
-    }
+    // Mostrar la sección seleccionada
+    const selectedSection = document.getElementById(sectionId);
+    selectedSection.classList.remove('hidden');
 }
 
-// Profile Form Submission
-document.getElementById('profileForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('Cambios guardados exitosamente');
-});
-
-// Toggle switches
-document.getElementById('notificationsToggle').addEventListener('change', function(e) {
-    e.preventDefault();
-    alert('Cambios guardados exitosamente');
+// Inicializar en Dashboard
+document.addEventListener('DOMContentLoaded', () => {
+    navigateTo('dashboard');
 });

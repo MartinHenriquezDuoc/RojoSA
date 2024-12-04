@@ -1,36 +1,28 @@
-/* Barra de progreso */
-.progress-bar-container {
-    width: 100%;
-    height: 8px;
-    background-color: #e5e7eb;
-    border-radius: 5px;
-    margin-top: 8px;
+/* Estilos para la barra de menú */
+body, html {
+    height: 100%; /* Asegura que el body y html ocupen toda la altura */
+    margin: 0; /* Elimina márgenes predeterminados */
 }
 
-.progress-bar {
-    height: 100%;
-    background-color: #4A90E2; /* El color de la barra */
-    border-radius: 5px;
+.navbar {
+    width: 100%; /* Asegura que ocupe todo el ancho */
+    height: 100vh; /* Asegura que ocupe toda la altura del viewport */
+    display: flex;
+    flex-direction: column; /* Para que los elementos se acomoden en columna */
+    justify-content: space-between; /* Ajusta los elementos si es necesario */
+    background-color: #333; /* O el color que prefieras */
+    padding: 20px;
+    box-sizing: border-box; /* Asegura que el padding no afecte la altura total */
 }
 
-/* Estilos para el modal de cursos */
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* Aspect ratio 16:9 */
-    height: 0;
-    overflow: hidden;
+/* Si la barra tiene enlaces o elementos internos */
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin: 5px 0;
 }
 
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-/* Aseguramos que la sección rendimiento ocupe todo el espacio */
-#rendimiento {
-    height: 100%;
-    overflow-y: auto;
+.navbar a:hover {
+    background-color: #555;
 }
