@@ -34,8 +34,8 @@
 
     <!-- Contenido Principal -->
     <div id="content" class="flex-1 p-6">
-         <!-- Sección Dashboard -->
-         <section id="dashboard" class="section">
+        <!-- Sección Dashboard -->
+        <section id="dashboard" class="section">
             <header class="bg-white shadow">
                 <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
                     <div class="flex justify-between items-center">
@@ -144,19 +144,37 @@
         <section id="mis-cursos" class="section hidden">
             <h2 class="text-2xl font-bold">Mis Cursos</h2>
             <div class="mt-4 space-y-4">
-                <div class="border rounded-lg p-4 bg-white">
+                <!-- Curso 1 -->
+                <div class="border rounded-lg p-4 bg-white cursor-pointer" onclick="openCourseModal(1)">
                     <h3 class="text-lg font-medium">Curso 1: Introducción a Python</h3>
                     <p class="text-sm text-gray-500">Progreso: 65%</p>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 65%;"></div>
+                    </div>
                 </div>
-                <div class="border rounded-lg p-4 bg-white">
+
+                <!-- Curso 2 -->
+                <div class="border rounded-lg p-4 bg-white cursor-pointer" onclick="openCourseModal(2)">
                     <h3 class="text-lg font-medium">Curso 2: JavaScript Avanzado</h3>
                     <p class="text-sm text-gray-500">Progreso: 40%</p>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 40%;"></div>
+                    </div>
+                </div>
+
+                <!-- Curso 3 -->
+                <div class="border rounded-lg p-4 bg-white cursor-pointer" onclick="openCourseModal(3)">
+                    <h3 class="text-lg font-medium">Curso 3: React Fundamentals</h3>
+                    <p class="text-sm text-gray-500">Progreso: 30%</p>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 30%;"></div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Sección Rendimiento -->
-        <section id="rendimiento" class="section hidden">
+        <section id="rendimiento" class="section hidden h-full overflow-auto">
             <h2 class="text-2xl font-bold">Rendimiento</h2>
             <p>Aquí puedes ver tu desempeño general.</p>
         </section>

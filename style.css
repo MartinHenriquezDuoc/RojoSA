@@ -1,62 +1,22 @@
-/* Existing CSS rules */
-.menu-button {
-    display: block;
+/* Barra de progreso */
+.progress-bar-container {
     width: 100%;
-    padding: 0.75rem 1rem;
-    text-align: left;
-    background: transparent;
-    color: white;
-    border: none;
-    font-size: 1rem;
-    transition: background 0.3s ease;
-    cursor: pointer;
+    height: 8px;
+    background-color: #e5e7eb;
+    border-radius: 5px;
+    margin-top: 8px;
 }
 
-.menu-button:hover {
-    background: rgba(255, 255, 255, 0.2);
+.progress-bar {
+    height: 100%;
+    background-color: #4A90E2; /* El color de la barra */
+    border-radius: 5px;
 }
 
-.section {
-    display: none;
-}
-
-.section:not(.hidden) {
-    display: block;
-}
-
-.fade-in {
-    animation: fadeIn 0.3s ease-out forwards;
-}
-
-.fade-out {
-    animation: fadeOut 0.3s ease-out forwards;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-        transform: scale(1);
-    }
-    to {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-}
-
+/* Estilos para el modal de cursos */
 .video-container {
     position: relative;
-    padding-bottom: 56.25%;
+    padding-bottom: 56.25%; /* Aspect ratio 16:9 */
     height: 0;
     overflow: hidden;
 }
@@ -69,13 +29,8 @@
     height: 100%;
 }
 
-/* Additional Profile Page Styles */
-.form-checkbox {
-    border-radius: 0.25rem;
-    color: #3182ce;
-}
-
-.form-checkbox:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+/* Aseguramos que la sección rendimiento ocupe todo el espacio */
+#rendimiento {
+    height: 100%;
+    overflow-y: auto;
 }
