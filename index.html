@@ -34,112 +34,152 @@
     </aside>
 
     <!-- Contenido Principal -->
-    <div id="content" class="flex-1">
-        <!-- Aquí mantendré todo el contenido original que enviaste -->
-        <header class="bg-white shadow">
-            <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-                <div class="flex justify-between items-center">
-                    <div class="flex items-center">
-                        <div class="h-12 w-12 rounded-full bg-blue-600 flex items-center justify-center">
-                            <span class="text-white text-xl font-bold">JP</span>
-                        </div>
-                        <div class="ml-4">
-                            <h1 class="text-xl font-bold">Juan Pérez</h1>
-                            <p class="text-sm text-gray-600">Estudiante</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center space-x-4">
-                        <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">
-                            1250 puntos
-                        </span>
-                    </div>
-                </div>
-            </nav>
-        </header>
-
-        <!-- Main Content -->
-        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Progress Section -->
-                <div class="bg-white rounded-lg shadow p-6">
-                    <h2 class="text-lg font-semibold mb-4">Tu Progreso</h2>
-                    <div class="relative pt-1">
-                        <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-200">
-                            <div class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-600 w-2/3"></div>
-                        </div>
-                        <div class="text-center">
-                            <span class="text-xl font-bold text-blue-600">65%</span>
-                            <p class="text-gray-600 text-sm">completado</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Recommended Courses Section -->
-                <div class="md:col-span-2 bg-white rounded-lg shadow p-6">
-                    <h2 class="text-lg font-semibold mb-4">Cursos Recomendados</h2>
-                    <div class="space-y-4">
-                        <!-- Course 1 -->
-                        <div class="border rounded-lg p-4">
-                            <div class="flex justify-between items-center">
-                                <div>
-                                    <h3 class="font-medium">Introducción a Python</h3>
-                                    <p class="text-sm text-gray-500">2h 30min • Principiante</p>
-                                </div>
-                                <button onclick="openCourseModal(1)" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                                    Comenzar
-                                </button>
+    <div id="content" class="flex-1 p-6">
+        <!-- Sección Dashboard -->
+        <section id="dashboard" class="section">
+            <header class="bg-white shadow">
+                <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center">
+                            <div class="h-12 w-12 rounded-full bg-blue-600 flex items-center justify-center">
+                                <span class="text-white text-xl font-bold">JP</span>
+                            </div>
+                            <div class="ml-4">
+                                <h1 class="text-xl font-bold">Juan Pérez</h1>
+                                <p class="text-sm text-gray-600">Estudiante</p>
                             </div>
                         </div>
-
-                        <!-- Course 2 -->
-                        <div class="border rounded-lg p-4">
-                            <div class="flex justify-between items-center">
-                                <div>
-                                    <h3 class="font-medium">JavaScript Avanzado</h3>
-                                    <p class="text-sm text-gray-500">3h 45min • Intermedio</p>
-                                </div>
-                                <button onclick="openCourseModal(2)" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                                    Comenzar
-                                </button>
-                            </div>
+                        <div class="flex items-center space-x-4">
+                            <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">
+                                1250 puntos
+                            </span>
                         </div>
+                    </div>
+                </nav>
+            </header>
 
-                        <!-- Course 3 -->
-                        <div class="border rounded-lg p-4">
-                            <div class="flex justify-between items-center">
-                                <div>
-                                    <h3 class="font-medium">React Fundamentals</h3>
-                                    <p class="text-sm text-gray-500">4h 15min • Avanzado</p>
-                                </div>
-                                <button onclick="openCourseModal(3)" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                                    Comenzar
-                                </button>
+            <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Progress Section -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h2 class="text-lg font-semibold mb-4">Tu Progreso</h2>
+                        <div class="relative pt-1">
+                            <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-200">
+                                <div class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-600 w-2/3"></div>
+                            </div>
+                            <div class="text-center">
+                                <span class="text-xl font-bold text-blue-600">65%</span>
+                                <p class="text-gray-600 text-sm">completado</p>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Recent Activity Section -->
-                <div class="md:col-span-3 bg-white rounded-lg shadow p-6">
-                    <h2 class="text-lg font-semibold mb-4">Actividad Reciente</h2>
-                    <div class="divide-y">
-                        <div class="py-3">
-                            <p class="font-medium">Completaste "Fundamentos de HTML"</p>
-                            <p class="text-sm text-gray-500">Hace 2 horas</p>
-                        </div>
-                        <div class="py-3">
-                            <p class="font-medium">Ganaste insignia "Programador Junior"</p>
-                            <p class="text-sm text-gray-500">Hace 1 día</p>
-                        </div>
-                        <div class="py-3">
-                            <p class="font-medium">Comentaste en "Dudas sobre JavaScript"</p>
-                            <p class="text-sm text-gray-500">Hace 2 días</p>
+                    <!-- Recommended Courses Section -->
+                    <div class="md:col-span-2 bg-white rounded-lg shadow p-6">
+                        <h2 class="text-lg font-semibold mb-4">Cursos Recomendados</h2>
+                        <div class="space-y-4">
+                            <!-- Course 1 -->
+                            <div class="border rounded-lg p-4">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <h3 class="font-medium">Introducción a Python</h3>
+                                        <p class="text-sm text-gray-500">2h 30min • Principiante</p>
+                                    </div>
+                                    <button onclick="openCourseModal(1)" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                                        Comenzar
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Course 2 -->
+                            <div class="border rounded-lg p-4">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <h3 class="font-medium">JavaScript Avanzado</h3>
+                                        <p class="text-sm text-gray-500">3h 45min • Intermedio</p>
+                                    </div>
+                                    <button onclick="openCourseModal(2)" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                                        Comenzar
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Course 3 -->
+                            <div class="border rounded-lg p-4">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <h3 class="font-medium">React Fundamentals</h3>
+                                        <p class="text-sm text-gray-500">4h 15min • Avanzado</p>
+                                    </div>
+                                    <button onclick="openCourseModal(3)" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                                        Comenzar
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- Recent Activity Section -->
+                    <div class="md:col-span-3 bg-white rounded-lg shadow p-6">
+                        <h2 class="text-lg font-semibold mb-4">Actividad Reciente</h2>
+                        <div class="divide-y">
+                            <div class="py-3">
+                                <p class="font-medium">Completaste "Fundamentos de HTML"</p>
+                                <p class="text-sm text-gray-500">Hace 2 horas</p>
+                            </div>
+                            <div class="py-3">
+                                <p class="font-medium">Ganaste insignia "Programador Junior"</p>
+                                <p class="text-sm text-gray-500">Hace 1 día</p>
+                            </div>
+                            <div class="py-3">
+                                <p class="font-medium">Comentaste en "Dudas sobre JavaScript"</p>
+                                <p class="text-sm text-gray-500">Hace 2 días</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </section>
+
+        <!-- Sección Mis Cursos -->
+        <section id="mis-cursos" class="section hidden">
+            <h2 class="text-2xl font-bold">Mis Cursos</h2>
+            <div class="mt-4 space-y-4">
+                <div class="border rounded-lg p-4 bg-white">
+                    <h3 class="text-lg font-medium">Curso 1: Introducción a Python</h3>
+                    <p class="text-sm text-gray-500">Progreso: 65%</p>
+                </div>
+                <div class="border rounded-lg p-4 bg-white">
+                    <h3 class="text-lg font-medium">Curso 2: JavaScript Avanzado</h3>
+                    <p class="text-sm text-gray-500">Progreso: 40%</p>
                 </div>
             </div>
-        </main>
+        </section>
+
+        <!-- Sección Rendimiento -->
+        <section id="rendimiento" class="section hidden">
+            <h2 class="text-2xl font-bold">Rendimiento</h2>
+            <p>Aquí puedes ver tu desempeño general.</p>
+        </section>
+
+        <!-- Sección Mi Perfil -->
+        <section id="mi-perfil" class="section hidden">
+            <h2 class="text-2xl font-bold">Mi Perfil</h2>
+            <p>Gestiona tu información personal.</p>
+        </section>
     </div>
+
+    <!-- Modal de Cursos -->
+    <div id="courseModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg max-w-3xl p-6">
+            <h2 id="modalTitle" class="text-2xl font-bold"></h2>
+            <p id="courseDescription" class="mt-4 text-gray-600"></p>
+            <div class="video-container mt-6"></div>
+            <div id="courseModules" class="mt-6"></div>
+            <button onclick="closeCourseModal()" class="mt-4 bg-red-600 text-white px-4 py-2 rounded-lg">Cerrar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>
