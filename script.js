@@ -54,7 +54,7 @@ function openCourseModal(courseId) {
     const modal = document.getElementById('courseModal');
     const title = document.getElementById('modalTitle');
     const description = document.getElementById('courseDescription');
-    const videoContainer = document.getElementById('courseImage').parentElement;
+    const videoContainer = document.querySelector('.video-container');
     const modulesList = document.getElementById('courseModules');
 
     // Actualizar contenido del modal
@@ -85,7 +85,6 @@ function openCourseModal(courseId) {
 
     // Mostrar el modal
     modal.classList.remove('hidden');
-    // Añadir animación de entrada
     modal.classList.add('fade-in');
 }
 
