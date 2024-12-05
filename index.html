@@ -23,6 +23,9 @@
                     <button onclick="navigateTo('mis-cursos')" class="menu-button">Mis Cursos</button>
                 </li>
                 <li>
+                    <button onclick="navigateTo('quiz')" class="menu-button">Quiz</button>
+                </li>
+                <li>
                     <button onclick="navigateTo('rendimiento')" class="menu-button">Rendimiento</button>
                 </li>
                 <li>
@@ -300,6 +303,106 @@
         </section>
     </div>
 
+    <!-- Sección Quiz -->
+<section id="quiz" class="section hidden">
+    <div class="min-h-[calc(100vh-2rem)] flex items-center justify-center">
+        <div class="max-w-3xl w-full mx-auto my-8">
+            <!-- Selector de Tema -->
+            <div id="topicSelector" class="bg-white shadow-lg rounded-lg p-8">
+                <h1 class="text-3xl font-bold text-blue-600 text-center mb-8">Selecciona un Tema para el Quiz</h1>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <button onclick="selectTopic('frontend')" 
+                            class="p-6 bg-white border-2 border-blue-200 rounded-lg hover:border-blue-600 hover:bg-blue-50 transition-all duration-300">
+                        <h3 class="text-xl font-bold mb-2">Frontend</h3>
+                        <p class="text-gray-600">HTML, CSS y desarrollo web básico</p>
+                    </button>
+                    <button onclick="selectTopic('backend')" 
+                            class="p-6 bg-white border-2 border-blue-200 rounded-lg hover:border-blue-600 hover:bg-blue-50 transition-all duration-300">
+                        <h3 class="text-xl font-bold mb-2">Backend</h3>
+                        <p class="text-gray-600">Desarrollo de servidor y APIs</p>
+                    </button>
+                    <button onclick="selectTopic('database')" 
+                            class="p-6 bg-white border-2 border-blue-200 rounded-lg hover:border-blue-600 hover:bg-blue-50 transition-all duration-300">
+                        <h3 class="text-xl font-bold mb-2">Bases de Datos</h3>
+                        <p class="text-gray-600">SQL y gestión de datos</p>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Contenedor del Quiz -->
+            <div id="quizContainer" class="bg-white shadow-lg rounded-lg p-8 hidden">
+                <h2 id="quizTitle" class="text-3xl font-bold text-blue-600 text-center mb-8"></h2>
+                
+                <!-- Barra de Progreso -->
+                <div class="mb-8">
+                    <div class="flex justify-between text-sm text-gray-600 mb-2">
+                        <span>Progreso</span>
+                        <span id="progressText">Pregunta 1 de 2</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div id="progressBar" class="bg-blue-600 h-2.5 rounded-full transition-all duration-300" style="width: 50%"></div>
+                    </div>
+                </div>
+
+                <!-- Contenedor de Preguntas -->
+                <div id="questionContainer" class="mb-8">
+                    <!-- Las preguntas se insertarán aquí dinámicamente -->
+                </div>
+
+                <!-- Feedback Inmediato -->
+                <div id="feedbackBox" class="hidden mb-8">
+                    <div class="p-6 rounded-lg border-2">
+                        <div class="flex items-start space-x-4">
+                            <div id="feedbackIcon" class="flex-shrink-0"></div>
+                            <div>
+                                <h4 id="feedbackTitle" class="text-lg font-bold mb-2"></h4>
+                                <p id="feedbackText" class="text-gray-700"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botones de Navegación -->
+                <div class="flex justify-between gap-4">
+                    <button id="prevButton" class="px-6 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors hidden">
+                        Anterior
+                    </button>
+                    <button id="nextButton" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                        Siguiente
+                    </button>
+                </div>
+            </div>
+
+            <!-- Resultados Finales -->
+            <div id="resultsContainer" class="bg-white shadow-lg rounded-lg p-8 hidden">
+                <h2 class="text-3xl font-bold text-blue-600 text-center mb-8">Resultados del Quiz</h2>
+                
+                <div class="mb-8 text-center">
+                    <div class="text-4xl font-bold text-gray-800 mb-4">
+                        <span id="score">0</span>/2 Correctas
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-3">
+                        <div id="scoreBar" class="bg-green-600 h-3 rounded-full transition-all duration-500"></div>
+                    </div>
+                </div>
+
+                <div id="finalFeedback" class="space-y-6 mb-8">
+                    <!-- El feedback detallado se insertará aquí -->
+                </div>
+
+                <div class="flex gap-4">
+                    <button onclick="restartQuiz()" class="flex-1 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                        Intentar de Nuevo
+                    </button>
+                    <button onclick="showTopicSelector()" class="flex-1 px-6 py-3 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors">
+                        Cambiar Tema
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+  
     <!-- Modal de Cursos -->
     <div id="courseModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
         <div class="bg-white rounded-lg max-w-3xl p-6">
