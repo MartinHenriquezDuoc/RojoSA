@@ -1,4 +1,4 @@
-// Función para abrir los cursos en el modal
+// Función para abrir el modal con la información del curso
 function openCourseModal(courseId) {
     // Obtener el curso seleccionado
     const course = coursesData[courseId];
@@ -8,15 +8,34 @@ function openCourseModal(courseId) {
     const modal = document.getElementById('courseModal');
     const title = document.getElementById('modalTitle');
     const description = document.getElementById('courseDescription');
-    const videoContainer = document.getElementById('courseModules');
+    const videoContainer = document.querySelector('.video-container'); // Cambiado a clase si aplica
+    const modulesList = document.getElementById('courseModules');
 
     // Actualizar el contenido del modal
     title.textContent = course.title;
     description.textContent = course.description;
 
     // Inserta el video en el contenedor del modal
-    const video = `<iframe src="${course.video}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-    videoContainer.innerHTML = video;
+    videoContainer.innerHTML = `
+        <iframe 
+            src="${course.video}" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+    `;
+
+    // Actualizar los módulos del curso
+    modulesList.innerHTML = course.modules
+        .map((module, index) => `
+            <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+                <span class="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">
+                    ${index + 1}
+                </span>
+                <span class="text-gray-700">${module}</span>
+            </div>
+        `)
+        .join('');
 
     // Mostrar el modal
     modal.classList.remove('hidden');
