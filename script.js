@@ -381,3 +381,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Asegurarse de que el selector de temas esté visible al inicio
     showTopicSelector();
 });
+
+function logout() {
+    // Redirigir al usuario a la página de inicio de sesión
+    window.location.href = 'login.html';
+    }
