@@ -6,6 +6,8 @@
     <title>ROJO - Plataforma Educativa</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 <body class="bg-gray-100 flex">
 
@@ -31,6 +33,9 @@
                 <li>
                     <button onclick="navigateTo('mi-perfil')" class="menu-button">Mi Perfil</button>
                 </li> 
+                <li>
+                    <button onclick="navigateTo('foro')" class="menu-button">Foro</button>
+                </li>
                 <li>
                     &nbsp;
                 </li>
@@ -228,6 +233,60 @@
                 </div>
             </div>
         </section>
+        <!-- Sección Foro -->
+<section id="foro" class="section hidden">
+    <h2 class="text-2xl font-bold">Foro</h2>
+    <p class="mb-4">Participa en discusiones con otros usuarios.</p>
+    
+    <!-- Área para escribir nuevas preguntas -->
+    <textarea placeholder="Escribe un nuevo tema o pregunta..." class="w-full p-4 border rounded-lg"></textarea>
+    <button onclick="publishPost()" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg">Publicar</button>
+    
+    <!-- Ejemplos de publicaciones -->
+    <div id="forumPosts" class="mt-6 space-y-4">
+        <div class="p-4 bg-gray-100 rounded-lg">
+            <h3 class="font-bold">Juan Pérez:</h3>
+            <p>¿Cómo puedo mejorar mi rendimiento en los exámenes tipo quiz?</p>
+            <small class="text-gray-500">Hace 2 horas</small>
+        </div>
+        <div class="p-4 bg-gray-100 rounded-lg">
+            <h3 class="font-bold">María López:</h3>
+            <p>¿Qué recursos recomiendan para aprender JavaScript avanzado?</p>
+            <small class="text-gray-500">Hace 1 día</small>
+        </div>
+        <div class="p-4 bg-gray-100 rounded-lg">
+            <h3 class="font-bold">Carlos Ruiz:</h3>
+            <p>¿Alguien más tiene problemas con el curso de React? Me quedé en el módulo 3.</p>
+            <small class="text-gray-500">Hace 3 días</small>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Función para agregar nuevas publicaciones
+    function publishPost() {
+        const textarea = document.querySelector('#foro textarea');
+        const postText = textarea.value.trim();
+        if (postText) {
+            const postContainer = document.createElement('div');
+            postContainer.className = 'p-4 bg-gray-100 rounded-lg';
+            
+            // Simulación de un usuario nuevo
+            postContainer.innerHTML = `
+                <h3 class="font-bold">Estudiante Anónimo:</h3>
+                <p>${postText}</p>
+                <small class="text-gray-500">Hace un momento</small>
+            `;
+            
+            const forumPosts = document.getElementById('forumPosts');
+            forumPosts.prepend(postContainer); // Agregar al principio
+            textarea.value = ''; // Limpiar el área de texto
+        }
+    }
+</script>
+
+        </script>
+        
 
         <!-- Sección Rendimiento -->
         <section id="rendimiento" class="section hidden h-full overflow-y-auto">
@@ -244,6 +303,44 @@
             </div>
 
             <!-- Aquí puedes agregar más estadísticas o gráficos como desees -->
+             
+
+<!-- Gráfico de pastel -->
+<div class="mt-8">
+    <h3 class="text-xl font-semibold">Desempeño en Actividades:</h3>
+    <!-- Contenedor con tamaño ajustado -->
+    <div style="max-width: 400px; margin: auto;">
+        <canvas id="pieChart"></canvas>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Asegúrate de que el gráfico se inicialice después de cargar el DOM
+    document.addEventListener('DOMContentLoaded', function () {
+        const ctx = document.getElementById('pieChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Completadas', 'Pendientes', 'Omitidas'],
+                datasets: [{
+                    data: [65, 25, 10], // Ajusta estos valores a tus datos reales
+                    backgroundColor: ['#4caf50', '#ff9800', '#f44336'],
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        position: 'top', // Leyenda en la parte superior
+                    },
+                },
+            },
+        });
+    });
+</script>
+
+
         </section>
 
         <!-- Sección Mi Perfil -->
